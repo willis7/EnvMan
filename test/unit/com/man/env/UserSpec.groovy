@@ -6,8 +6,8 @@ import spock.lang.Specification
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
-@TestFor(EnvManUser)
-class EnvManUserSpec extends Specification {
+@TestFor(User)
+class UserSpec extends Specification {
 
     def setup() {
     }
@@ -17,12 +17,12 @@ class EnvManUserSpec extends Specification {
 
     void "test toString"() {
 		when: "a user has a fullname"
-			def envManUser = new EnvManUser(fullName: 'John Doe',
+			def u1 = new User(fullName: 'John Doe',
 						userName: 'jdoe',
 						password: 't0ps3cr3t',
 						email: 'jdoe@johnsgroovyshop.com')
 		
 		then: "the toString method will return the fullname"
-			envManUser.toString() == 'John Doe'
+			u1.toString() == 'John Doe'
     }
 }

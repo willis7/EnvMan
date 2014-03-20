@@ -1,28 +1,29 @@
-import com.man.env.EnvManUser
+import com.man.env.Booking
+import com.man.env.User
 import com.man.env.Environment
 
 class BootStrap {
 
     def init = { servletContext ->
 		
-		new EnvManUser(fullName: 'John Doe',
+		def user1 = new User(fullName: 'John Doe',
 						userName: 'jdoe',
 						password: 't0ps3cr3t',
-						email: 'jdoe@johnsgroovyshop.com').save()
+						email: 'jdoe@johnsgroovyshop.com')
+		user1.save()
 		
-		new EnvManUser(fullName: 'John Deere',
+		def user2 = new User(fullName: 'John Deere',
 						userName: 'tractorman',
 						password: 't0ps3cr3t',
-						email: 'john.deere@porkproducers.org').save()
-						
+						email: 'john.deere@porkproducers.org')
+		user2.save()	
 						
 		def env1 = new Environment(name: 'ORCA_CLIENT_DEV',
 							description: '''ORCA UI Development environment''',
-							owner: EnvManUser.findByFullName('John Deere'),
-							url: 'www.groovy.porkproducers.org',
+							url: 'http://www.groovy.porkproducers.org',
 							phaseUsage: 'dev',
-							status: 'utilized').save()
-			
+							status: 'utilized')
+		env1.save()
     }
     def destroy = {
     }

@@ -9,7 +9,7 @@ import spock.lang.Specification
 @TestFor(Environment)
 class EnvironmentSpec extends Specification {
 	
-	EnvManUser userMock = Mock()
+	User userMock = Mock()
 
     def setup() {
     }
